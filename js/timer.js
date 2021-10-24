@@ -7,11 +7,30 @@ class CountdownTimer {
       hours: document.querySelector(`${this.selector} [data-value='hours']`),
       mins: document.querySelector(`${this.selector} [data-value='mins']`),
       secs: document.querySelector(`${this.selector} [data-value='secs']`),
+
+      daysDesc: document.querySelector(
+        `${this.selector} [data-value='days'] + .label`
+      ),
+      hoursDesc: document.querySelector(
+        `${this.selector} [data-value='hours'] + .label`
+      ),
+      minsDesc: document.querySelector(
+        `${this.selector} [data-value='mins'] + .label`
+      ),
+      secsDesc: document.querySelector(
+        `${this.selector} [data-value='secs'] + .label`
+      ),
     };
+    this.intervalId = null;
   }
 
   run() {
-    setInterval(() => {
+    this.intervalId = setInterval(() => {
+      if (Date.now() > this.targetDate) {
+        alert(`${this.selector}: DAYS GONE`);
+        this.stop();
+        return;
+      }
       const deltaTime = this.targetDate - Date.now();
       const liveTime = this.getTimeComponents(deltaTime);
 
@@ -19,7 +38,20 @@ class CountdownTimer {
       this.refs.hours.textContent = liveTime.hours;
       this.refs.mins.textContent = liveTime.mins;
       this.refs.secs.textContent = liveTime.secs;
+
+      this.refs.daysDesc.textContent = liveTime.days === '01' ? 'day' : 'days';
+      this.refs.hoursDesc.textContent =
+        liveTime.hours === '01' ? 'hour' : 'hours';
+      this.refs.minsDesc.textContent =
+        liveTime.mins === '01' ? 'minute' : 'minutes';
+      this.refs.secsDesc.textContent =
+        liveTime.secs === '01' ? 'second' : 'seconds';
     }, 1000);
+  }
+
+  stop() {
+    clearInterval(this.intervalId);
+    liveTime = this.getTimeComponents(0);
   }
 
   pad(value) {

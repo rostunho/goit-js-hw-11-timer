@@ -1,8 +1,17 @@
 import CountdownTimer from './js/timer.js';
 
-const timerTo2022 = new CountdownTimer({
+const timerToNewYear = new CountdownTimer({
   selector: '#timer-1',
   targetDate: new Date('Jan 1, 2022'),
 });
 
-timerTo2022.run();
+timerToNewYear.run();
+// timerToNewYear.stop();
+
+const timerToDeadline = new CountdownTimer({
+  selector: '#timer-2',
+  targetDate: new Date('Oct 25, 2021'),
+});
+
+timerToDeadline.run();
+// timerToDeadline.stop();
