@@ -1,0 +1,58 @@
+body {
+  font-family: 'Prosto One', cursive;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.field {
+  display: flex;
+  flex-wrap: wrap;
+
+  align-items: center;
+  justify-content: center;
+
+  /* padding: auto;
+  text-align: center;
+  vertical-align: middle; */
+
+  height: 100px;
+  width: 100px;
+
+  margin: 0 5px;
+
+  border-radius: 2px;
+  /* background-color: #333333; */
+
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #222222,
+    #222222 10px,
+    #2a2a2a 10px,
+    #2a2a2a 11px
+  );
+}
+
+.field:first-child {
+  border-radius: 10px 2px 2px 2px;
+}
+.field:last-child {
+  border-radius: 2px 2px 10px 2px;
+}
+
+.value {
+  padding-top: 5px;
+
+  font-size: 50px;
+  line-height: 1;
+
+  color: gold;
+}
+
+.label {
+  padding-bottom: 5px;
+  color: #999999;
+}
