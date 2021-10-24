@@ -8,10 +8,10 @@ const timerToNewYear = new CountdownTimer({
 timerToNewYear.run();
 // timerToNewYear.stop();
 
-const timerToDeadline = new CountdownTimer({
+const timerToWorldCup = new CountdownTimer({
   selector: '#timer-2',
-  targetDate: new Date('Oct 25, 2021'),
+  targetDate: new Date('Nov 21, 2022, 19:45'),
 });
 
-timerToDeadline.run();
+timerToWorldCup.run();
 // timerToDeadline.stop();
